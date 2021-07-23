@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.board.mappers.empMapper">
+
+<select id="selectEmp" resultType="com.web.board.beans.empBean">
+select EMP_CODE AS EMPCODE
+	  ,ID  
+	  ,NAME 
+	  ,MAIL
+	  ,GRADE_CDOE AS GRADECODE
+	  ,EMP_NO AS EMPNO
+	  from
+	 EMP
+</select>
+</mapper>
