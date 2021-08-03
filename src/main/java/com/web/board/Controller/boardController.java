@@ -1,6 +1,5 @@
 package com.web.board.Controller;
 
-import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,47 +8,32 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.web.board.Service.boardService;
 import com.web.board.VO.boardVO;
 
-import kr.zikiz.common.vo.BsnplVO;
 
 
 
 @Controller
 public class boardController {
 	
-	
-	@Autowired
-	private boardService service;
+	@Autowired 
+	boardService board; 
 	
 	ModelAndView mv = null;
 	
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String testPage() {
-		
-		
-		return "/test";
-	}
 	
-	@RequestMapping(value = "/2", method = RequestMethod.GET)
-	public String testPage2() {
+	@RequestMapping(value = "/",method = RequestMethod.GET)
+	public String boardPage(boardVO boardVo,Model model) throws Exception{
 		
+		List<boardVO> boardInfo = board.selectBoardInfo(boardVo);
 		
-		return "/test2";
+		model.addAttribute("list",boardInfo);
+		return "/board/board";
 	}
-	@RequestMapping(value = "/api/json/selectboardInfo", method = RequestMethod.POST)
-	public String selectEmpInfo(HttpServletRequest request, Model model,boardVO boardVo) {
-		
-		List<boardVO> board = boardService.selectBoardInfo(boardVo);
-
-		model.addAttribute("result",board);
-		return model;
-	}
+}

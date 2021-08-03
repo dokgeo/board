@@ -14,9 +14,9 @@
 </definition>
 
 <!--  tiles 적용 제외 부분 정의 -->
-<!-- <definition name="empty" template="/WEB-INF/tiles/layout/empty.jsp"> -->
-<!-- 	<put-attribute name="content" value=""/> -->
-<!-- </definition> -->
+<definition name="empty" template="/WEB-INF/tiles/layout/empty.jsp">
+	<put-attribute name="content" value=""/>
+</definition>
 
 <!-- tiles 적용 제외한 나머지 부분 -->
 <definition name="*/*" extends="layout">

@@ -1,11 +1,13 @@
 package com.web.board.DAO;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 import com.web.board.VO.boardVO;
 
-
 public interface boardDAO {
-	public ArrayList<boardVO> selectBoardInfo(boardVO boardVo);
 	
+	public List<boardVO> selectBoardInfo(boardVO boardVo) throws Exception;
+	 
 }
