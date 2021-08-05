@@ -12,7 +12,6 @@
 	<put-attribute name ="content" value=""/>
 	<put-attribute name="footer" value="/WEB-INF/tilesView/footer.jsp"/>
 </definition>
-
 <!--  tiles 적용 제외 부분 정의 -->
 <definition name="empty" template="/WEB-INF/tiles/layout/empty.jsp">
 	<put-attribute name="content" value=""/>
@@ -21,8 +20,13 @@
 <!-- tiles 적용 제외한 나머지 부분 -->
 <definition name="*/*" extends="layout">
 	<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	<put-attribute name="content-js" value="/WEB-INF/views/{1}/{2}-js.jsp"/>
 </definition>
 
+<!-- tiles 미적용 제외한 나머지 부분 -->
+<definition name="*/*" extends="empty">
+	<put-attribute name="contents" value="/WEB-INF/views/{1}/{2}.jsp"/>
+</definition>
 <!-- tiles 제외 선언 -->
 <definition name="logInfo/login" extends="empty">
 	<put-attribute name="content" value="WEB-INF/views/logInfo/login.jsp"/>

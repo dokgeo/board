@@ -18,4 +18,19 @@ public class boardDAOImpl implements boardDAO {
 		return sqlSession.selectList("selectBoardInfo");
 	}
 
+	@Override
+	public Integer deleteBoardInfo(boardVO boardVo) throws Exception {
+		return sqlSession.delete("deleteBoardInfo");
+	}
+
+	@Override
+	public Integer insertBoardInfo(boardVO boardVo) throws Exception {
+		return sqlSession.insert("insertBoardInfo");
+	}
+
+	@Override
+	public Integer updateBoardInfo(boardVO boardVo) throws Exception {
+		return sqlSession.update("updateBoardInfo");
+	}
+
 }

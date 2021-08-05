@@ -12,7 +12,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/common.js"></script>
 </head>
+  
 <body class="sb-nav-fixed">
 <main>
                     <div class="container-fluid px-4">
@@ -49,7 +51,28 @@
                         	<a href="" class="btn btn-primary pull-right">글쓰기</a>
                         
                             </div>
-
+						<form id="boardinsert"> 
+						<div id="boardtitle">
+							<label>제목</label>
+							<div>
+							<input type="text" id="boardTitle">
+							</div>
+						</div>
+						<div>
+							<label>내용</label>
+							<div>
+							<textarea id="boardContent" style="resize:none"></textarea>
+							</div>
+						</div>
+						<div>
+							<label>작성자</label>
+							<div>
+								<input type="text" id="boardUser">
+							</div>
+						</div>
+						<input type="submit" value="등록">
+						<input type="reset" value="취소">
+						</form>
 
 
 </main>

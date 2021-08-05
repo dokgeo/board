@@ -10,13 +10,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- tiles--> 
 
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
-    	<property name="order" value="2" />
-
-	</bean>	
 	<!-- properties -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="classpath:/jdbc.properties" />

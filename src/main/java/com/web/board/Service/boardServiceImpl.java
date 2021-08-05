@@ -19,5 +19,23 @@ public class boardServiceImpl implements boardService {
 		return boardDao.selectBoardInfo(boardVo);
 	}
 
+	@Override
+	public Integer deleteBoardInfo(boardVO boardVo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer insertBoardInfo(boardVO boardVo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer updateBoardInfo(boardVO boardVo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

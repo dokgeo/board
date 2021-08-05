@@ -1,6 +1,5 @@
 package com.web.board.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +28,46 @@ public class boardController {
 	
 	
 	@RequestMapping(value = "/",method = RequestMethod.GET)
-	public String boardPage(boardVO boardVo,Model model) throws Exception{
+	public String boardPage() throws Exception{
 		
-		List<boardVO> boardInfo = board.selectBoardInfo(boardVo);
-		
-		model.addAttribute("list",boardInfo);
 		return "/board/board";
 	}
+	
+	
+	@RequestMapping(value = "/boardList" ,method =RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView boardList(HttpServletRequest request,boardVO boardVo,Model model) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		List<boardVO> boardInfo = board.selectBoardInfo(boardVo);
+		System.out.println(boardInfo);
+		mav.addObject(boardInfo);
+		return mav;
+	}
+	
+	
+//	@RequestMapping(value = "/insertBoard")
+//	@ResponseBody
+//	public Integer insertBoard (boardVO boardVo) throws Exception{
+//
+//		return board.insertBoardInfo(boardVo);	
+//	}
+//	
+//	@RequestMapping(value = "/deleteBoard")
+//	@ResponseBody
+//	public Integer deleteBoard (boardVO boardVo) throws Exception{
+//
+//		return board.deleteBoardInfo(boardVo);	
+//	}
+//	
+//	@RequestMapping(value = "/deleteBoard")
+//	@ResponseBody
+//	public Integer updateBoard (boardVO boardVo) throws Exception{
+//
+//		return board.updateBoardInfo(boardVo);	
+//	}
+//	
+//	
+		
+		
+		
 }
