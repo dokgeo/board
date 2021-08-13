@@ -1,6 +1,6 @@
 package com.web.board.VO;
 
-public class boardVO {
+public class BoardVO {
 	
 	private int board_id;
 	

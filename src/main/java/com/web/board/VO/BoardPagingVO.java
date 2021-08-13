@@ -1,6 +1,6 @@
 package com.web.board.VO;
 
-public class boardPagingVO {
+public class BoardPagingVO {
 
 	private int startPage;
 	

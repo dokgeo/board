@@ -5,36 +5,17 @@
 
 
 <tiles-definitions>
-<!-- layout 적용부 -->
-<definition name="layout" template="/WEB-INF/tilelayout/layout.jsp">
-	<put-attribute name="header" value="/WEB-INF/tilesView/header.jsp"/>
-	<put-attribute name="sidebar" value="/WEB-INF/tilesView/sidebar.jsp"/>
-	<put-attribute name ="content" value=""/>
-	<put-attribute name="footer" value="/WEB-INF/tilesView/footer.jsp"/>
-</definition>
-<!--  tiles 적용 제외 부분 정의 -->
-<definition name="empty" template="/WEB-INF/tiles/layout/empty.jsp">
-	<put-attribute name="content" value=""/>
-</definition>
-
-<!-- tiles 적용 제외한 나머지 부분 -->
-<definition name="*/*" extends="layout">
-	<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
-	<put-attribute name="content-js" value="/WEB-INF/views/{1}/{2}-js.jsp"/>
-</definition>
-
-<!-- tiles 미적용 제외한 나머지 부분 -->
-<definition name="*/*" extends="empty">
-	<put-attribute name="contents" value="/WEB-INF/views/{1}/{2}.jsp"/>
-</definition>
-<!-- tiles 제외 선언 -->
-<definition name="logInfo/login" extends="empty">
-	<put-attribute name="content" value="WEB-INF/views/logInfo/login.jsp"/>
-</definition>
-
-<definition name="logInfo/membeJoin" extends="empty">
-	<put-attribute name="content" value="WEB-INF/views/logInfo/memberJoin.jsp"/>
-</definition>
+	<!-- layout 적용부 -->
+	<definition name="layout" template="/WEB-INF/tilelayout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tilesView/header.jsp"/>
+		<put-attribute name="sidebar" value="/WEB-INF/tilesView/sidebar.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/tilesView/footer.jsp"/>
+	</definition>
+	
+	<definition name="/tiles/*/*" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
 
 
 </tiles-definitions>

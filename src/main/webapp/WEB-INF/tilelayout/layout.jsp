@@ -9,7 +9,7 @@
   		<tiles:insertAttribute name="meta"/>
 		<tiles:insertAttribute name="styles"/>
 		<tiles:insertAttribute name="scripts"/>
-		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <div id="header">
@@ -22,11 +22,10 @@
 	</div>
 </div>
 
+
 <div id="footer" style="margin-left:11%">	
 	<tiles:insertAttribute name="footer"/>	
 </div>
-
-
     	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
 </body>
