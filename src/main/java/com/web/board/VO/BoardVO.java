@@ -2,61 +2,61 @@ package com.web.board.VO;
 
 public class BoardVO {
 	
-	private int board_id;
+	private int boardId;
 	
-	private String board_title;
+	private String boardTitle;
 	
-	private String board_date;
+	private String boardDate;
 	
-	private String board_reg_user;
+	private String boardRegUser;
 	
-	private String board_content;
+	private String boardContent;
 
-	public int getBoard_id() {
-		return board_id;
+	public int getBoardId() {
+		return boardId;
 	}
 
-	public void setBoard_id(int board_id) {
-		this.board_id = board_id;
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
 	}
 
-	public String getBoard_title() {
-		return board_title;
+	public String getBoardTitle() {
+		return boardTitle;
 	}
 
-	public void setBoard_title(String board_title) {
-		this.board_title = board_title;
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
 	}
 
-	public String getBoard_date() {
-		return board_date;
+	public String getBoardDate() {
+		return boardDate;
 	}
 
-	public void setBoard_date(String board_date) {
-		this.board_date = board_date;
+	public void setBoardDate(String boardDate) {
+		this.boardDate = boardDate;
 	}
 
-	public String getBoard_reg_user() {
-		return board_reg_user;
+	public String getBoardRegUser() {
+		return boardRegUser;
 	}
 
-	public void setBoard_reg_user(String board_reg_user) {
-		this.board_reg_user = board_reg_user;
+	public void setBoardRegUser(String boardRegUser) {
+		this.boardRegUser = boardRegUser;
 	}
 
-	public String getBoard_content() {
-		return board_content;
+	public String getBoardContent() {
+		return boardContent;
 	}
 
-	public void setBoard_content(String board_content) {
-		this.board_content = board_content;
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
 	}
 
 	@Override
 	public String toString() {
-		return "boardVO [board_id=" + board_id + ", board_title=" + board_title + ", board_date=" + board_date
-				+ ", board_reg_user=" + board_reg_user + ", board_content=" + board_content + "]";
+		return "BoardVO [boardId=" + boardId + ", boardTitle=" + boardTitle + ", boardDate=" + boardDate
+				+ ", boardRegUser=" + boardRegUser + ", boardContent=" + boardContent + "]";
 	}
-	
+
 	
 }

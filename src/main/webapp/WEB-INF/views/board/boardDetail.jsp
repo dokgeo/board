@@ -27,55 +27,32 @@
                        
                         <table class="board">
                         <tbody id="board_Main">
-                        	<tr>
-                        	<td>No</td>
-                        	<td class="board-title">제목</td>
-                        	<td class="board-date">게시일자</td>
-                        	<td class="board-reg_user">작성자</td>
-                        	<td colspan="2"></td>
-                        	</tr>
-                        </tbody>
-                        <tbody id="board_content">
-	                        <c:forEach var="list" items="${list}">
-	                         
-	                        	<tr >
-	                        	<td>${list.boardId}</td>
-								<td><a href='/boardDetail?boardId=${list.boardId}'>${list.boardTitle}</a></td>
-								<td>${list.boardDate}</td>                        	
-	                        	<td>${list.boardRegUser}</td>
-	                        	<td><a href="javascript:updateBoard(${list.boardId});" class="btn btn-primary pull-right" style="width:70px">수정</a></td>
-	                        	<td><a href="javascript:deleteBoard(${list.boardId});"id="delete_btn" class="btn btn-primary pull-right" style="width:70px">삭제</a></td>
-	                        	</tr>
-                        	</c:forEach>
-                        </tbody>		
-                        </table>
-                        
-                        <br>
-                        <div> 등록 </div>
-                        <br><br>
-						<form id="boardinsert" method="post" action="/insertBoard"> 
-							<div id="boardtitle">
+	            
+	                        	<div id="boardtitle">
 								<label>제목</label>
 								<div>
-								<input type="text" id="boardTitle" name="boardTitle">
+								<input type="text" id="boardTitle" name="boardTitle" value="${detail.boardTitle}">
 								</div>
 							</div>
 							<div>
 								<label>내용</label>
 								<div>
-								<textarea id="boardContent" style="resize:none" name="boardContent"></textarea>
+								<textarea id="boardContent" style="resize:none" name="boardContent"><c:out value="${detail.boardContent}"></c:out></textarea>
 								</div>
 							</div>
 							<div>
 								<label>작성자</label>
 								<div>
-									<input type="text" id="boardRegUser" name="boardRegUser" >
+									<input type="text" id="boardReg_user" name="boardRegUser" value="${detail.boardRegUser} ">
 								</div>
 							</div>
-							<input type="submit" value="등록">
-								<input type="reset" value="취소">
-						</form>
-		
+								<tr>
+	                        	<td><a href="javascript:updateBoard(${detail.boardId});" class="btn btn-primary pull-right" style="width:70px">수정</a></td>
+	                        	<td><a href="javascript:deleteBoard(${detail.boardId});"id="delete_btn" class="btn btn-primary pull-right" style="width:70px">삭제</a></td>
+	                        	</tr>
+	                        	</tbody>
+                        </table>
+                        <br>
 
 </main>
 </body>
