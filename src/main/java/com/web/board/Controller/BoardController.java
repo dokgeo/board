@@ -27,7 +27,11 @@ public class BoardController {
 	
 	ModelAndView mv = null;
 	
-	
+	/*
+	 * 
+	 * 게시판 페이지	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String BoardPage(BoardVO boardVo,Model model) throws Exception{
 
@@ -37,7 +41,11 @@ public class BoardController {
 		model.addAttribute("list",boardInfo);
 		return "/board/board";
 	}
-	
+	/*
+	 * 
+	 * 게시판 조회	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/boardDetail",method = RequestMethod.GET)
 	public String BoardDetailPage(BoardVO boardVo,Model model) throws Exception{
 
@@ -49,7 +57,11 @@ public class BoardController {
 		System.out.println(boardService.selectBoardInfoDetail(boardVo.getBoardId()));
 		return "/board/boardDetail";
 	}
-	
+	/*
+	 * 
+	 * json to VO 연습	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/json",method = RequestMethod.GET)
 	public void jsonTest(Model model)throws Exception {
 		
@@ -76,26 +88,42 @@ public class BoardController {
 		
 
 	}
-	
+	/*
+	 * 
+	 * 게시판 등록 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/insertBoard" ,method = {RequestMethod.GET,RequestMethod.POST})
 	public String InsertBoard (BoardVO boardVo) throws Exception{
 		boardService.insertBoardInfo(boardVo);
 		return "redirect:/";	
 	}
-	
+	/*
+	 * 
+	 * 게시판 삭제	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/deleteBoard",method =  {RequestMethod.GET,RequestMethod.POST})
 	public String DeleteBoard (BoardVO boardVo) throws Exception{
 		System.out.println("board_id::"+boardVo.getBoardId());
 		boardService.deleteBoardInfo(boardVo.getBoardId());
 		return "redirect:/";	
 	}
-	
+	/*
+	 * 
+	 * 게시판 수정	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/updateBoard",method = RequestMethod.POST)
 	public String UpdateBoard (BoardVO boardVo) throws Exception{
 			boardService.updateBoardInfo(boardVo);	
 		 return "redirect:/";
 	}
-	
+	/*
+	 * 
+	 * 게시판 수정페이지	 * 
+	 * 
+	 * */
 	@RequestMapping(value = "/updateBoardDetail",method = RequestMethod.GET)
 	public String UpdateBoardDetail (BoardVO boardVo,Model model) throws Exception{
 
