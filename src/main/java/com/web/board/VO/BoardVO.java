@@ -11,6 +11,16 @@ public class BoardVO {
 	private String boardRegUser;
 	
 	private String boardContent;
+	
+	private String boardPhone;
+
+	public String getBoardPhone() {
+		return boardPhone;
+	}
+
+	public void setBoardPhone(String boardPhone) {
+		this.boardPhone = boardPhone;
+	}
 
 	public int getBoardId() {
 		return boardId;
@@ -55,7 +65,8 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [boardId=" + boardId + ", boardTitle=" + boardTitle + ", boardDate=" + boardDate
-				+ ", boardRegUser=" + boardRegUser + ", boardContent=" + boardContent + "]";
+				+ ", boardRegUser=" + boardRegUser + ", boardContent=" + boardContent + ", boardPhone=" + boardPhone
+				+ "]";
 	}
 
 	

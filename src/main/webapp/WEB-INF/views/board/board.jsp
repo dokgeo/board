@@ -53,25 +53,32 @@
                         <br>
                         <div> 등록 </div>
                         <br><br>
-						<form id="boardinsert" method="post" action="/insertBoard"> 
+						<form id="boardInsert" name="boardInsert" method="post" action="/insertBoard"> 
 							<div id="boardtitle">
 								<label>제목</label>
 								<div>
-								<input type="text" id="boardTitle" name="boardTitle">
+								<input type="text" id="boardTitle" name="boardTitle" maxlength="20">
 								</div>
 							</div>
 							<div>
 								<label>내용</label>
 								<div>
-								<textarea id="boardContent" style="resize:none" name="boardContent"></textarea>
+								<textarea id="boardContent" style="resize:none" name="boardContent" maxlength="100"></textarea>
 								</div>
 							</div>
 							<div>
 								<label>작성자</label>
 								<div>
-									<input type="text" id="boardRegUser" name="boardRegUser" >
+									<input type="text" id="boardRegUser" name="boardRegUser" maxlength="10">
 								</div>
 							</div>
+							<div>
+								<label>전화번호</label>
+								<div>
+									<input type="text" id="boardPhone" name="boardPhone" maxlength="11">
+								</div>
+							</div>
+							
 							<input type="submit" value="등록">
 								<input type="reset" value="취소">
 						</form>
@@ -81,7 +88,11 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-	var form = $("form[name='objForm']")
+// 	var form = $("form[name='objForm']")
+	
+// // 	var regExp = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+// // 	if
+	
 })
 
 function deleteBoard(obj){
@@ -102,7 +113,5 @@ function updateBoard(obj){
 		}
 	
 }
-
-
 </script>
 </html>

@@ -33,23 +33,23 @@
 							<div id="boardtitle">
 								<label>제목</label>
 								<div>
-								<input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}">
+								<input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}" maxlength="20">
 								</div>
 							</div>
 							<div>
 								<label>내용</label>
 								<div>
-								<textarea id="boardContent" style="resize:none" name="boardContent" ><c:out value="${update.boardContent}"></c:out></textarea>
+								<textarea id="boardContent" style="resize:none" name="boardContent" maxlength="100"><c:out value="${update.boardContent}"></c:out></textarea>
 								</div>
 							</div>
 							<div>
 								<label>작성자</label>
 								<div>
-									<input type="text" id="boardReg_user" name="boardRegUser"  value="${update.boardRegUser}" >
+									<input type="text" id="boardReg_user" name="boardRegUser"  value="${update.boardRegUser}" maxlength="10">
 								</div>
 							</div>
 							<input type="submit" value="수정">
-								<input type="reset" value="취소">
+								<input type="submit" formmethod="post" formaction="/" value="취소">
 						</form>
 		
 

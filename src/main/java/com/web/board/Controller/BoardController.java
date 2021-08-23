@@ -32,7 +32,7 @@ public class BoardController {
 	 * 게시판 페이지	 * 
 	 * 
 	 * */
-	@RequestMapping(value = "/",method = RequestMethod.GET)
+	@RequestMapping(value = "/",method = {RequestMethod.GET,RequestMethod.POST})
 	public String BoardPage(BoardVO boardVo,Model model) throws Exception{
 
 		System.out.println("boardPage ing ..");

@@ -31,24 +31,25 @@
 	                        	<div id="boardtitle">
 								<label>제목</label>
 								<div>
-								<input type="text" id="boardTitle" name="boardTitle" value="${detail.boardTitle}">
+								<input type="text" id="boardTitle" name="boardTitle" value="${detail.boardTitle}" readonly ="readonly">
 								</div>
 							</div>
 							<div>
 								<label>내용</label>
 								<div>
-								<textarea id="boardContent" style="resize:none" name="boardContent"><c:out value="${detail.boardContent}"></c:out></textarea>
+								<textarea id="boardContent" style="resize:none" name="boardContent"  readonly ="readonly"><c:out value="${detail.boardContent}"  ></c:out></textarea>
 								</div>
 							</div>
 							<div>
 								<label>작성자</label>
 								<div>
-									<input type="text" id="boardReg_user" name="boardRegUser" value="${detail.boardRegUser} ">
+									<input type="text" id="boardReg_user" name="boardRegUser" value="${detail.boardRegUser} "  readonly ="readonly">
 								</div>
 							</div>
 								<tr>
 	                        	<td><a href="javascript:updateBoard(${detail.boardId});" class="btn btn-primary pull-right" style="width:70px">수정</a></td>
 	                        	<td><a href="javascript:deleteBoard(${detail.boardId});"id="delete_btn" class="btn btn-primary pull-right" style="width:70px">삭제</a></td>
+	                        	<td><a href="/"id="delete_btn" class="btn btn-primary pull-right" style="width:70px">게시판으로</a></td>
 	                        	</tr>
 	                        	</tbody>
                         </table>
