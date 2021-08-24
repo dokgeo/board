@@ -53,29 +53,29 @@
                         <br>
                         <div> 등록 </div>
                         <br><br>
-						<form id="boardInsert" name="boardInsert" method="post" action="/insertBoard"> 
+						<form id="boardInsert" name="boardInsert" method="post" action="/insertBoard" onSubmit="return checkForm()"> 
 							<div id="boardtitle">
 								<label>제목</label>
 								<div>
-								<input type="text" id="boardTitle" name="boardTitle" maxlength="20">
+								<input type="text" id="boardTitle" name="boardTitle" maxlength="21" placeholder="제목을 입력하세요">
 								</div>
 							</div>
 							<div>
 								<label>내용</label>
 								<div>
-								<textarea id="boardContent" style="resize:none" name="boardContent" maxlength="100"></textarea>
+								<textarea rows="10" cols="30" id="boardContent" style="resize:none" name="boardContent" maxlength="101" placeholder="100자이내로 입력하세요" ></textarea>
 								</div>
 							</div>
 							<div>
 								<label>작성자</label>
 								<div>
-									<input type="text" id="boardRegUser" name="boardRegUser" maxlength="10">
+									<input type="text" id="boardRegUser" name="boardRegUser" maxlength="11" placeholder="이름을 입력하세요">
 								</div>
 							</div>
 							<div>
 								<label>전화번호</label>
 								<div>
-									<input type="text" id="boardPhone" name="boardPhone" maxlength="11">
+									<input type="text" id="boardPhone" name="boardPhone" maxlength="12" placeholder="'-'를 제외한 번호를 입력하세요">
 								</div>
 							</div>
 							
@@ -87,13 +87,6 @@
 </main>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-// 	var form = $("form[name='objForm']")
-	
-// // 	var regExp = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
-// // 	if
-	
-})
 
 function deleteBoard(obj){
 
@@ -112,6 +105,88 @@ function updateBoard(obj){
 		location.href = "/updateBoardDetail?boardId="+obj
 		}
 	
+} 
+
+function checkForm(){
+	var spcWord = /[~!@#$%^&*()_+|<>?:{}]/gi; // 특수문자
+	var engWord = /[a-zA-Z]/; // 문자
+	var korWord = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+	var space = /\s/g; //공백
+	
+	var chkForm = document.boardInsert;
+		//제목 체크
+		if(chkForm.boardTitle.value==""){
+			alert("제목을 입력하세요");
+			return false;
+		}else if(spcWord.test(chkForm.boardTitle.value)){
+			alert("특수문자는 입력할수없습니다.");
+			boardTitle.value =  "";
+			return false;
+		}else if(chkForm.boardTitle.value.length>20){
+			alert("20자이내로 입력해주세요.");
+			boardTitle.value =  "";
+			return false;
+		}
+		
+		//내용 체크
+		if(chkForm.boardContent.value==""){
+			alert("내용을 입력하세요");
+			return false;
+		}else if(spcWord.test(boardContent.value)){
+			alert("특수문자는 입력할수없습니다.");
+			boardContent.value = "";
+			return false;
+		}else if(chkForm.boardContent.value.length>100){
+			alert("100자이내로 입력해주세요.");
+			return false;
+		}
+		//작성자 체크
+		if(chkForm.boardRegUser.value==""){
+			alert("작성자명을 입력하세요");
+			return false;
+		}else if(spcWord.test(chkForm.boardRegUser.value)){
+			alert("특수문자는 입력할수없습니다.");
+			boardRegUser.value = "";
+			return false;
+		}else if(chkForm.boardRegUser.value.match(space)){
+			alert("공백 없이 입력해주세요");
+			return false;
+		}else if(chkForm.boardRegUser.value.length>10){
+			alert("10자이내로 입력해주세요.");
+			boardRegUser.value =  "";
+			return false;
+		}
+		//번호체크
+		if(chkForm.boardPhone.value==""){
+			alert(" '-' 제외한 번호를 입력하세요");
+			return false;
+		}else if(spcWord.test(chkForm.boardPhone.value)){
+			alert("특수문자는 입력할수없습니다.");
+			boardPhone.value="";
+			return false;
+		}else if(engWord.test(chkForm.boardPhone.value)){
+			alert("숫자만 입력가능합니다.");
+			boardPhone.value="";
+			return false;
+		}else if(korWord.test(chkForm.boardPhone.value)){
+			alert("숫자만 입력가능합니다.");
+			boardPhone.value="";
+			return false;
+		}else if(chkForm.boardPhone.value.match(space)){
+			alert("공백 없이 입력해주세요");
+			return false;
+		}else if(chkForm.boardPhone.value.length<10){
+			alert("최소 10자리이상 번호를 입력해주세요");
+			return false;
+		}else if(chkForm.boardPhone.value.length>11){
+			alert("11자이내로 입력해주세요.");
+			boardPhone.value =  "";
+			return false;
+		}
+		
 }
+	
+	
+
 </script>
 </html>
