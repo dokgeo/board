@@ -2,6 +2,8 @@ package com.web.board.Service;
 
 import java.util.List;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import com.web.board.VO.BoardVO;
 
 public interface BoardService {

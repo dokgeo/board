@@ -63,13 +63,19 @@ $(document).ready(function(){
 })
 
 function deleteBoard(obj){
-
-	if(!confirm("삭제하시겠습니까?")){
-		alert("삭제를 취소했습니다.");
-	}else{
-		alert("삭제하였습니다.");
-		location.href = "/deleteBoard?boardId="+obj
-		}
+	var ans = confirm("삭제하시겠습니까?");
+	
+	if(ans){
+		$.ajax({
+		 url:"/deleteBoard?boardId="+obj
+		,type:"post"
+		,data:obj
+		,success:function(data){
+			alert("삭제하였습니다.");
+			location.href = "/";
+			}
+		});
+	}
 }
 function updateBoard(obj){
 
