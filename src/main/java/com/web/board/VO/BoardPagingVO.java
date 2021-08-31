@@ -2,35 +2,61 @@ package com.web.board.VO;
 
 public class BoardPagingVO {
 
-	private int startPage;
+	private int page;
 	
-	private int pageBlock;
+	private int perPageNum;
 	
-	private int pageNum;
+	private int rowStart;
+	
+	private int rowEnd;
 
-	public int getStartPage() {
-		return startPage;
-	}
-
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
-
-	public int getPageBlock() {
-		return pageBlock;
-	}
-
-	public void setPageBlock(int pageBlock) {
-		this.pageBlock = pageBlock;
-	}
-
-	public int getPageNum() {
-		return pageNum;
-	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
+	public BoardPagingVO() {
+		this.page = 1; 
+		this.perPageNum =10;
+		
 	}
 	
+	public void setPage(int page) {
+		if(page <= 0) {
+			this.page =1;
+			return;
+		}
+		this.page = page;
+	}
 	
+	public void setPerpageNum(int perPageNum) {
+		if(perPageNum<=0 || perPageNum >100) {
+			this.perPageNum = 10;
+			return;
+		}
+		
+	}
+
+	public int getPage() {
+		return page;
+	}
+	
+	public int getPageStart() {
+		return (this.page - 1) * perPageNum;
+	}
+	
+	public int getPerPageNum() {
+		return this.perPageNum;
+	}
+	
+	public int getRowStart() {
+		rowStart = ((page - 1) * perPageNum) + 1;
+		return rowStart;
+	}
+
+	public int getRowEnd() {
+		rowEnd = rowStart + perPageNum - 1;
+		return rowEnd;
+	}
+	
+	@Override
+	public String toString() {
+		return "BoardPagingVO [page=" + page + ", perPageNum=" + perPageNum + ", rowStart=" + rowStart + ", rowEnd="
+				+ rowEnd + "]";
+	}
 }

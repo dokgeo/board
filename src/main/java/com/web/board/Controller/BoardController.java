@@ -12,10 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.board.Service.BoardService;
+import com.web.board.VO.BoardPagingVO;
 import com.web.board.VO.BoardVO;
 import com.web.board.VO.ContactPointVO;
 import com.web.board.VO.CreatorVO;
 import com.web.board.VO.MainVO;
+import com.web.board.VO.PageMarker;
 
 
 
@@ -34,12 +36,19 @@ public class BoardController {
 	 * 
 	 * */
 	@RequestMapping(value = "/",method = {RequestMethod.GET,RequestMethod.POST})
-	public String BoardPage(BoardVO boardVo,Model model) throws Exception{
+	public String BoardPage(BoardPagingVO boardPagingVo,Model model) throws Exception{
 
 		System.out.println("boardPage ing ..");
 		
-		List<BoardVO> boardInfo = boardService.selectBoardInfo(boardVo);
+		List<BoardVO> boardInfo = boardService.boardPaging(boardPagingVo);
+		
+		PageMarker pageMarker = new PageMarker();
+		pageMarker.setPaging(boardPagingVo);
+		pageMarker.setTotalCount(boardService.listCount());
+		
 		model.addAttribute("list",boardInfo);
+		model.addAttribute("pageMarker",pageMarker);
+		
 		return "/board/board";
 	}
 	/*

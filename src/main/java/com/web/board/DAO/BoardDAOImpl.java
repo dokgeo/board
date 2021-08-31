@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.web.board.VO.BoardPagingVO;
 import com.web.board.VO.BoardVO;
 
 @Repository("BoardDAO")
@@ -15,8 +16,13 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardVO> selectBoardInfo(BoardVO boardVo) throws Exception {
-		return sqlSession.selectList("selectBoardInfo");
+	public List<BoardVO> boardPaging(BoardPagingVO boardPagingVo) throws Exception {
+		return sqlSession.selectList("boardPaging",boardPagingVo);
+	}
+	
+	@Override
+	public int listCount() throws Exception {
+		return sqlSession.selectOne("listCount");
 	}
 	
 	@Override
@@ -38,5 +44,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public void updateBoardInfo(BoardVO boardVo) throws Exception {
 		 sqlSession.update("updateBoardInfo",boardVo);
 	}
+
+
 
 }

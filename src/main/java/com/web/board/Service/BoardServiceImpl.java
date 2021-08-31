@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.board.DAO.BoardDAO;
+import com.web.board.VO.BoardPagingVO;
 import com.web.board.VO.BoardVO;
 
 @Service
@@ -15,8 +16,13 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO boardDao;
 	
 	@Override
-	public List<BoardVO> selectBoardInfo(BoardVO boardVo) throws Exception{
-		return boardDao.selectBoardInfo(boardVo);
+	public List<BoardVO> boardPaging(BoardPagingVO boardPagingVo) throws Exception{
+		return boardDao.boardPaging(boardPagingVo);
+	}
+
+	@Override
+	public int listCount() throws Exception {
+		return boardDao.listCount();
 	}
 
 	@Override
@@ -41,6 +47,8 @@ public class BoardServiceImpl implements BoardService {
 		System.out.println("boardVo :: " + boardVo);
 		boardDao.updateBoardInfo(boardVo);
 	}
+
+
 
 
 
